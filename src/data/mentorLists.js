@@ -1,0 +1,60 @@
+const mentorLists = [
+    {
+        mentorId: "M123",
+        name: "Muhammad Awwal Adewuyi",
+        email: "almajiridev@itobtech.com",
+        phoneNumber: "08032369000",
+        stack: 'Web Development',
+        dateJoined: "2024-01-15",
+    },
+    {
+        mentorId: "M489",
+        name: "Akeem Muhyideen Folahan",
+        email: "md@itobtech.com",
+        phoneNumber: "08032369000",
+        stack: "Cloud DevOps",
+        dateJoined: "2024-01-20",
+    },
+    {
+        mentorId: "M456",
+        name: "Hassan Yahya",
+        email: "hassanyahya@itobtech.com",
+        phoneNumber: "08032369000",
+        stack: 'Web Development',
+        dateJoined: "2024-01-18",
+    },
+    {
+        mentorId: "M105",
+        name: "Odewole Abdullahi Adewale",
+        email: "abdullahi@example.com",
+        phoneNumber: "08032369000",
+        stack: "Graphics Design",
+        dateJoined: "2024-01-20",
+    },
+    {
+        mentorId: "M598",
+        name: "Rokeeb Abdul",
+        email: "rokeebabdul@example.com",
+        phoneNumber: "08032369000",
+        stack: "Product Design",
+        dateJoined: "2024-01-20",
+    },
+    {
+        mentorId: "M012",
+        name: "Sulaiman Olusokun",
+        email: "slybaba@itobtech.com",
+        phoneNumber: "08032369000",
+        stack: "Cloud Engineering & IT Ops",
+        dateJoined: "2024-01-20",
+    },
+    {
+        mentorId: "M432",
+        name: "Adepoju Abdulquadri",
+        email: "adepoju@example.com",
+        phoneNumber: "08032369000",
+        stack: "Cloud Engineering & IT Ops",
+        dateJoined: "2024-01-20",
+    },
+]
+
+export default mentorLists

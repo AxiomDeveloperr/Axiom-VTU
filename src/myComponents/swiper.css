@@ -1,0 +1,30 @@
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1f2937; /* Tailwind gray-800 */
+  font-size: 1rem !important; /* Force the custom font size */
+  z-index: 10;
+}
+
+/* Navigation arrows should move below for small devices */
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: static !important; /* Remove absolute positioning */
+    display: inline-block !important;
+    margin-top: 1rem !important; /* Add spacing from the slider */
+    font-size: 0.875rem !important; /* Adjust font size for smaller screens */
+  }
+
+  .swiper-button-next {
+    margin-left: 1rem !important; /* Space between the arrows */
+  }
+
+  .swiper-button-prev {
+    margin-right: 1rem !important;
+  }
+
+  /* Center the arrows below the slider */
+  .swiper {
+    text-align: center !important;
+  }
+}
