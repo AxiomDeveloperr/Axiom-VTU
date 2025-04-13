@@ -1,2 +1,38 @@
 @import "tailwindcss";
 
+@layer components {
+    .card {
+      background-color: var(--color-green-950);
+      border-radius: var(--rounded-lg);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-xl);
+    }
+    .primary-color {
+        background-color: #880d1e;
+        color: white;
+    }
+
+    .secondary-color {
+        background-color: #FFC8C8;
+        color: #880d1e;
+    }
+
+    .tertiary-color {
+        background-color: #f5f3f4;
+        color: black;
+    }
+
+    .primary-text {
+        color: #880d1e;
+    }
+
+    .secondary-text {
+        color: #FFC8C8;
+    }
+  }
+
+
+  
+
+  /*  - Secondary
+  #880d1e - primary */
