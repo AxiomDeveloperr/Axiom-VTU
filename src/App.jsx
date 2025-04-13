@@ -18,7 +18,7 @@ function App() {
         </a>
       </div>
       <div className="maroon-text">
-      <h1 >Vite + React</h1>
+      <h1 className='primary-font font-extrabold text-4xl' >Vite + React</h1>
       </div>
       
       <div className="card">

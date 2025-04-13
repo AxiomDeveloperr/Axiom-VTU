@@ -29,10 +29,20 @@
     .secondary-text {
         color: #FFC8C8;
     }
+
+    @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 300 900;
+        font-display: swap;
+        src: url("assets/font/poppins/poppins-v5-latin-300.woff2") format("woff2");
+      }
+  }
+
+  .primary-font {
+    font-family: Poppins;
+    font-weight: 900;
+    src: url("assets/font/poppins/poppins-v5-latin-300.woff2") format("woff2");
   }
 
 
-  
-
-  /*  - Secondary
-  #880d1e - primary */
