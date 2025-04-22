@@ -1,111 +1,65 @@
-import { MdOutlineNavigateNext } from "react-icons/md";
-import { Link } from "react-router-dom";
-import "../App.css";
-import {
-  cloudIcon,
-  colorPalette,
-  hexagon,
-  titik,
-  uiUx,
-  vector,
-  webIcon,
-} from "../assets/icons";
-import { heroImage } from "../assets/images";
+import { FaGraduationCap, FaLightbulb, FaWifi } from "react-icons/fa";
+import { guy } from "../assets/images";
+import { FaMobileScreen } from "react-icons/fa6";
+import { PiTelevisionSimpleDuotone } from "react-icons/pi";
+import { GiPaperBagOpen } from "react-icons/gi";
 import Button from "../components/Button";
-import GreetingsComponent from "../components/GreetingsComponent";
-import FloatingBox from "../components/HomeFloatingSkills";
-import ImagesComponent from "../components/ImageContainer";
-import IOTBBadge from "../components/IOTBBadge";
 
-const Hero = () => {
+const HomeHero = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between p-6 lg:p-16 mx-auto lg:mt-5 mt-14 ">
-      <div className="lg:w-1/2 text-center lg:text-left relative">
-        <div className="justify-center items-stretch">
-          <img
-            src={vector}
-            alt="vector arrow"
-            className="hidden lg:block -left-24 text-center h-full absolute"
-          />
-        </div>
-        <div className="space-y-6">
-          <h2 className="text-left mb-2 text-tt-primary -mt-3 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
-            <GreetingsComponent />
-          </h2>
-          <h1 className="text-tt-black text-left text-4xl md:text-5xl font-extrabold mb-8">
-            On a mission to liberate lives <IOTBBadge />
+    <div className="relative">
+      {/* Floating image on small screens */}
+      <img
+        src={guy}
+        alt="Floating figure"
+        className="block lg:hidden absolute top-[130px] right-4 w-32 h-auto z-10"
+      />
+
+      <section className="w-full bg-white py-12 px-4 md:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-between relative">
+        {/* Left Side */}
+        <div className="flex-1 mb-12 lg:mb-0 z-20">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 primary-font">
+            The <span className="primary-text">BEST</span> place to subscribe / buy
+            <br />
+            <span className="primary-text">AIRTIME</span>
           </h1>
-          <p className="text-xl text-tt-grey mb-6 text-left">
-            Empowering Nigerian youths with in-demand tech skills, the IOTB TECH
-            Fellowship is a 6-month program offering training in selected tech
-            fields, fostering career growth and development.
-          </p>
-          <div className="flex flex-col lg:flex-row mx-auto justify-center lg:justify-start mt-9 mb-8 gap-5 -z-50">
-            <Link
-              to="/fellows/registration"
-              onClick={() => {
-                window.scrollTo(0, 0);
-              }}
-            >
-              <Button
-                text="Enrol Today"
-                type="solid"
-                icon={<MdOutlineNavigateNext />}
-              />
-            </Link>
-            <Link
-              to="/services"
-              onClick={() => {
-                window.scrollTo(0, 0);
-              }}
-            >
-              <Button text="Check our Services" type="outline" />
-            </Link>
+          <p className="text-gray-700 text-base md:text-lg mb-6 text-left md:text-center">What are you buying today?</p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-md relative z-0">
+            {[
+              { label: "Airtime", icon: <FaMobileScreen className="text-blue-500" /> },
+              { label: "Data", icon: <FaWifi className="text-indigo-500" /> },
+              { label: "Electricity", icon: <FaLightbulb className="text-yellow-500" /> },
+              { label: "Cable TV", icon: <PiTelevisionSimpleDuotone className="text-purple-500" /> },
+              { label: "Education", icon: <FaGraduationCap className="text-green-600" /> },
+              { label: "Others", icon: <GiPaperBagOpen className="text-pink-500" /> },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="bg-gray-50 border rounded-xl shadow hover:shadow-md transition duration-300 flex flex-col items-center p-4 text-center"
+              >
+                <div className="text-3xl mb-2">{item.icon}</div>
+                <div className="text-sm font-medium text-gray-800">{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <Button text="Get Started" />
           </div>
         </div>
-      </div>
-      <div className="relative lg:w-1/2 flex justify-center z-10">
-        {/* <div className="absolute hidden lg:block -top-6 left-[100px] w-[310px] h-[305px] bg-tt-primary rounded-hexagon -z-10"></div> */}
-        <img
-          src={hexagon}
-          alt="hexagon background"
-          className="absolute hidden lg:block -top-6 w-[310px] -z-10"
-        />
-        <img
-          src={titik}
-          alt="pattern circles background"
-          className="absolute hidden lg:block top-14 left-[200px] w-[300px] h-[350px] -z-20"
-        />
-        <ImagesComponent
-          src={heroImage}
-          alt="hero image"
-          className="hidden lg:block h-[350px]"
-        />
-        <div className="hidden lg:block">
-          <FloatingBox
-            icon={uiUx}
-            text="Technology"
-            position="top-16 left-20"
-          />
-          <FloatingBox
-            icon={cloudIcon}
-            text="Faith"
-            position="top-32 right-24"
-          />
-          <FloatingBox
-            icon={webIcon}
-            text="Entreprenuership"
-            position="top-56 left-20"
-          />
-          <FloatingBox
-            icon={colorPalette}
-            text="Empowerment"
-            position="top-72 right-24"
+
+        {/* Right Side image for large screens */}
+        <div className="flex-1 w-full max-w-md lg:max-w-xl hidden lg:block">
+          <img
+            src={guy}
+            alt="Dashboard preview"
+            className="w-full h-auto rounded-xl"
           />
         </div>
-      </div>
+      </section>
     </div>
   );
 };
 
-export default Hero;
+export default HomeHero;

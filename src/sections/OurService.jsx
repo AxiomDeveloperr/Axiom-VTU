@@ -1,29 +1,45 @@
-import { BsChatLeft } from 'react-icons/bs';
-import { MdOutlineNavigateNext } from 'react-icons/md';
-import { Link } from 'react-router-dom';
-import Button from '../components/Button';
+import services from "../data/services";
 
 const OurService = () => {
   return (
-    <div className="px-4 md:px-8 mb-8">
-      <div className="mx-auto flex-col items-center justify-center text-left lg:text-center space-y-6">
-        <h2 className="text-tt-primary text-xl md:text-2xl lg:text-3xl font-bold">Our Services</h2>
-        <h1 className="text-tt-black text-3xl font-bold mb-0 lg:mb-8">Services we Offer</h1>
-        <p className="text-tt-grey text-lg lg:text-md text-justify">
-          With our awesome team we offers a variety of services from UI/UX design to cloud solutions
-          architecture. we offer holistic trainings that helps you achieve your goals of skills
-          development and professional breakthrough.
-        </p>
-        <div className="flex flex-col lg:flex-row mx-auto justify-center lg:justify-center gap-5 -z-50">
-          <Link to="/contact">
-            <Button text="Lets Talk" type="solid" icon={<BsChatLeft />} />
-          </Link>
-          <Link to="/portfolio">
-            <Button text="Check our Services" type="outline" icon={<MdOutlineNavigateNext />} />
-          </Link>
-        </div>
+    <section className="w-full py-16 px-4 md:px-16 text-center">
+      <div className="mb-4">
+        <span className="inline-block px-4 py-1 text-xs font-medium primary-color rounded-full">
+          ★ Services ★
+        </span>
       </div>
-    </div>
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+        Your All-in-One Subscription Hub
+      </h2>
+      <p className="text-gray-600 max-w-3xl mx-auto mb-10 text-sm md:text-base">
+        Say goodbye to the hassle of multiple apps and platforms, and hello to
+        the simplicity and convenience of managing your subscriptions with us.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="bg-white border border-gray-200 rounded-xl p-5 shadow hover:shadow-md transition"
+          >
+            <div className="grid grid-cols-4 gap-2 mb-4">
+              {service.logos.map((logo, idx) => (
+                <img
+                  key={idx}
+                  src={logo}
+                  alt="logo"
+                  className="w-10 h-10 object-contain mx-auto"
+                />
+              ))}
+            </div>
+            <h3 className="text-md md:text-lg font-semibold text-gray-800 mb-2">
+              {service.title}
+            </h3>
+            <p className="text-sm text-gray-600">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
