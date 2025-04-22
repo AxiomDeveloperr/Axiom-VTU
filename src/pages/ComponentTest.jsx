@@ -1,5 +1,4 @@
 import Button from '../components/Button';
-import { MdOutlineNavigateNext } from 'react-icons/md';
 
 const ComponentTest = () => {
   return (
@@ -20,8 +19,9 @@ const ComponentTest = () => {
       <div>
         <h2>Buttons</h2>
         <div>
-          <Button type="outline" text="Learn More" icon={<MdOutlineNavigateNext />} />
-          <Button type="solid" text="Learn More" icon={<MdOutlineNavigateNext />} />
+          <Button type="outline" text="Learn More"  />
+          <br />
+          <Button type="solid" text="Learn More"  />
         </div>
       </div>
     </div>
