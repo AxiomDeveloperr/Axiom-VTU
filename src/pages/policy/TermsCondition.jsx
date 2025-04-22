@@ -1,67 +1,128 @@
-import NavBar from '../../components/NavBar';
-import Footer from '../../sections/Footer';
-import PlainArticle from './PlainArticle';
-import ListArticle from './ListArticle';
+import { useEffect, useRef } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import html2pdf from "html2pdf.js";
+import Footer from "../../components/Footer";
 
-const TermsCondition = () => {
+const TermsAndConditions = () => {
+  const pdfRef = useRef();
+
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
+
+  const handleDownload = () => {
+    const element = pdfRef.current;
+    const opt = {
+      margin: 0.5,
+      filename: "AxiomSubscriptions_Terms_and_Conditions.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+    html2pdf().set(opt).from(element).save();
+  };
+
   return (
-    <div className="font-montserrat min-h-screen flex flex-col">
-      <NavBar />
-      <main className="flex-grow px-4 sm:px-8 md:px-16 lg:px-32 pt-12 pb-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center md:text-left">
-          Terms and Conditions
-        </h1>
-        <article className="space-y-8 max-w-4xl mx-auto">
-          <PlainArticle
-            heading="Introduction"
-            text="By using the IOTB Tech website, you agree to these Terms & Conditions. Please read them carefully."
-          />
-          <ListArticle
-            heading="Use of Our Website"
-            text=""
-            listItems={[
-              "You must provide accurate information when applying.",
-              "You are responsible for maintaining the confidentiality of your account.",
-              "Misuse of the platform, such as fraud or unauthorized access, is prohibited.",
-            ]}
-          />
-          <ListArticle
-            heading="Admission & Study Materials"
-            text=""
-            listItems={[
-              "Admission decisions are based on test performance and other criteria.",
-              "Study materials provided are for educational use only and must not be redistributed.",
-            ]}
-          />
-          <ListArticle
-            heading="User Conduct"
-            text="You agree to:"
-            listItems={[
-              "Respect the intellectual property of IOTB Tech",
-              "Not engage in any harmful activities, such as hacking or spreading malware.",
-            ]}
-          />
-          <PlainArticle
-            heading="Limitation of Liability"
-            text="To the extent allowed by law, we are not responsible for indirect losses, such as lost data or service interruptions, unless caused by our gross negligence."
-          />
-          <PlainArticle
-            heading="Termination of Access"
-            text="We reserve the right to suspend or terminate your access if you violate these Terms."
-          />
-          <PlainArticle
-            heading="Changes to Terms"
-            text="We may update these Terms from time to time. Continued use of our website means you accept the changes."
-          />
-          <PlainArticle
-            heading="Contact Information"
-            text="For questions, contact us at iotbtechprenuer@gmail.com."
-          />
-        </article>
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
+      <header className="primary-color text-white py-16 px-6 text-center shadow-md">
+        <h1 className="text-4xl md:text-5xl font-bold">Terms & Conditions</h1>
+        <p className="mt-4 text-lg max-w-3xl mx-auto">
+          Please read these terms carefully before using Axiom Subscriptions.
+        </p>
+        {/* <button
+          onClick={handleDownload}
+          className="mt-6 bg-white primary-text px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition"
+        >
+          Download as PDF
+        </button> */}
+      </header>
+
+      {/* Main content to convert to PDF */}
+      <main ref={pdfRef} className="max-w-5xl mx-auto px-6 py-12 space-y-12 text-justify">
+      <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using Axiom Subscriptions, you agree to be bound by these Terms and Conditions.
+            If you do not agree to any part of these terms, you may not use our services.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">2. Services</h2>
+          <p>
+            Axiom Subscriptions provides virtual top-up services including airtime, data subscriptions, electricity
+            payments, cable TV subscriptions, result checkers, and more. We act as a facilitator and do
+            not own or control third-party services.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">3. User Responsibilities</h2>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Provide accurate information during account creation and transactions.</li>
+            <li>Keep login credentials confidential and secure.</li>
+            <li>Refrain from engaging in fraudulent, abusive, or illegal activities.</li>
+          </ul>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">4. Payments & Refunds</h2>
+          <p>
+            All payments made on Axiom Subscriptions are final and non-refundable except in cases of failed
+            transactions where services were not delivered. Refunds will be processed after verification
+            and may take up to 5–7 business days.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">5. Account Termination</h2>
+          <p>
+            We reserve the right to suspend or terminate your account at any time for violating our
+            policies, engaging in fraudulent transactions, or disrupting service functionality.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">6. Intellectual Property</h2>
+          <p>
+            All content, logos, trademarks, and designs on Axiom Subscriptions are the property of their
+            respective owners. You may not reuse, copy, or reproduce them without written permission.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">7. Limitation of Liability</h2>
+          <p>
+            Axiom Subscriptions shall not be held liable for indirect, incidental, or consequential damages
+            arising from the use of our services. We are not responsible for third-party service
+            failures or delays beyond our control.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">8. Changes to Terms</h2>
+          <p>
+            We may update these Terms and Conditions at any time. Continued use of our platform
+            constitutes your agreement to the updated terms. It is your responsibility to review this
+            page periodically.
+          </p>
+        </section>
+
+        <section className="bg-white rounded-xl shadow-md p-6 md:p-10 mb-6" data-aos="fade-up">
+          <h2 className="text-2xl font-semibold mb-4">9. Contact Information</h2>
+          <p>
+            If you have any questions regarding these Terms, please contact us via email:{" "}
+            <a href="mailto:support@axiomsubscriptions.com" className="primary-text underline">
+              support@axiomsubscriptions.com
+            </a>
+          </p>
+        </section>
       </main>
+
       <Footer />
     </div>
   );
 };
 
-export default TermsCondition;
+export default TermsAndConditions;

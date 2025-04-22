@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import './index.css'
+import ComponentTest from './pages/ComponentTest'
 import Footer from './components/Footer'
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
 
   return (
     <>
-    <Footer />
+    <ComponentTest />
     </>
   )
 }
