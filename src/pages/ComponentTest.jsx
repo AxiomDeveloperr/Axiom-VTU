@@ -1,9 +1,21 @@
+
+// import Button from '../components/Button';
+// import { MdOutlineNavigateNext } from 'react-icons/md';
+
+
 import Button from '../components/Button';
+
 
 const ComponentTest = () => {
   return (
     <div>
+
       <div>
+        <div className="">
+         <PrivacyPolicy />
+          {/* <Alert /> */}
+          {/* <Button type="outline" text="Learn More" icon={<MdOutlineNavigateNext />} />
+          <Button type="solid" text="Learn More" icon={<MdOutlineNavigateNext />} /> */}
         <iframe
           width="560"
           height="315"

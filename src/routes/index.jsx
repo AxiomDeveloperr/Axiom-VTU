@@ -49,11 +49,13 @@ import TrainingMaterials from '../pages/programManagement/TrainingMaterials';
 import ApplicantionFormPage from '../pages/ApplicantionFormPage';
 import UnauthorizedPage from '../components/UnauthorizedPage';
 import SetNewPassword from '../pages/auth/ResetToNewPassword';
+import ContactPage from '../pages/ContactPage';
 // import Loaderr from '../components/Loaderr';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      <Route path="/contactpage" element={<ContactPage />} />
       {/* Authentication pages */}
       <>
         <Route path="/login" element={<Login />} />
@@ -70,13 +72,13 @@ const router = createBrowserRouter(
       {/* Website pages */}
 
       <Route index element={<LandingPage />} errorElement={<NotFound />}>
-        {/* <Route index element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/component-test" element={<ComponentTest />} />
-        <Route path="/guideline" element={<Guidelines />} /> */}
+        <Route path="/guideline" element={<Guidelines />} />
       </Route>
 
       {/* UNAUTHORIZED */}
