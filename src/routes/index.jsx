@@ -49,11 +49,13 @@ import TrainingMaterials from '../pages/programManagement/TrainingMaterials';
 import ApplicantionFormPage from '../pages/ApplicantionFormPage';
 import UnauthorizedPage from '../components/UnauthorizedPage';
 import SetNewPassword from '../pages/auth/ResetToNewPassword';
+import ContactPage from '../pages/ContactPage';
 // import Loaderr from '../components/Loaderr';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      <Route path="/contactpage" element={<ContactPage />} />
       {/* Authentication pages */}
       <>
         <Route path="/login" element={<Login />} />
