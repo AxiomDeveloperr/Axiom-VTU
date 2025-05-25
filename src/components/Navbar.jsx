@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Axiom from "../assets/axiomdev.svg";
+import Button from "./Button";
 
 const Navbar = ({btn}) => {
 
@@ -7,7 +8,7 @@ const Navbar = ({btn}) => {
 
     return (
         
-        <div className="flex tertiary-color gap-10 items-center justify-between h-24 w-full px-8 rounded-xl shadow hover:shadow-lg transition">
+        <div className="flex gap-10 items-center justify-between h-24 w-full px-8 rounded-xl shadow-2xl hover:shadow-lg transition">
         <div>
            <img src={Axiom} alt="logo" className="w-48 h-24 primary-text"/>
         </div>
@@ -20,7 +21,7 @@ const Navbar = ({btn}) => {
             <li>Services</li>
             <li>FAQ</li>
           </ul>
-        <button className="primary-color  w-36 h-10 rounded">{btn}</button>
+          <Button text="Get Started" />
       </div>
 
       <div className="sm:hidden">

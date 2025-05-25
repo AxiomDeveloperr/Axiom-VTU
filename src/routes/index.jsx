@@ -50,6 +50,7 @@ import ApplicantionFormPage from '../pages/ApplicantionFormPage';
 import UnauthorizedPage from '../components/UnauthorizedPage';
 import SetNewPassword from '../pages/auth/ResetToNewPassword';
 import ContactPage from '../pages/ContactPage';
+import TransactionHistory from '../pages/TransactionHistory';
 // import Loaderr from '../components/Loaderr';
 
 const router = createBrowserRouter(
@@ -79,6 +80,7 @@ const router = createBrowserRouter(
         <Route path="/services" element={<Services />} />
         <Route path="/component-test" element={<ComponentTest />} />
         <Route path="/guideline" element={<Guidelines />} />
+       
       </Route>
 
       {/* UNAUTHORIZED */}
