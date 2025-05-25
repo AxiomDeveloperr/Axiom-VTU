@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Axiom from "../assets/axiomdev.svg";
+
 import { Link } from "react-router-dom";
+
+
 import Button from "./Button";
 
 const Navbar = () => {
@@ -9,7 +12,7 @@ const Navbar = () => {
 
     return (
         
-        <div className="flex tertiary-color gap-10 items-center justify-between h-24 w-full px-8 rounded-xl shadow hover:shadow-lg transition">
+        <div className="flex gap-10 items-center justify-between h-24 w-full px-8 rounded-xl shadow-2xl hover:shadow-lg transition">
         <div>
            <img src={Axiom} alt="logo" className="w-48 h-24 primary-text"/>
         </div>
@@ -22,8 +25,12 @@ const Navbar = () => {
             <li><Link to="services">Services</Link></li>
             <li><Link to="faq">FAQ</Link></li>
           </ul>
+
         {/* <button className="primary-color  w-36 h-10 rounded">{btn}</button> */}
         <Button text="Login" />
+
+          <Button text="Get Started" />
+
       </div>
 
       <div className="sm:hidden">

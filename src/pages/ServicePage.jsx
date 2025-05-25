@@ -1,12 +1,7 @@
 import { useState } from "react";
 
 const ServicePage = () => {
-  // const [hover, setHover] = useState (false);
-  // const handleMouseEnter = () => setHover(true);
-  // const handleMouseLeave = () => setHover (false);
-  // const hoverStyle = {
-  //   backgroundColor : hover ? "red" : "white"
-  // }
+  
     return (
         <>
              

@@ -9,7 +9,6 @@ import Button from '../components/Button';
 const ComponentTest = () => {
   return (
     <div>
-
       <div>
         <div className="">
          <PrivacyPolicy />
@@ -36,6 +35,7 @@ const ComponentTest = () => {
           <Button type="solid" text="Learn More"  />
         </div>
       </div>
+    </div>
     </div>
   );
 };
