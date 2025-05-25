@@ -1,17 +1,17 @@
-import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import Footer from '../myComponents/Footer';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const AppLayout = () => {
 
   return (
-    <div className="max-w-full overflow-x-hidden">
-
+    <div>
+      {/* Navbar */}
+      <Navbar />
       {/* Main Content */}
-      <main className="font-montserrat">
+      <main>
         <Outlet />
       </main>
-
       {/* Footer */}
       <Footer />
     </div>

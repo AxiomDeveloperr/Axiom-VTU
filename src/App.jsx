@@ -1,15 +1,13 @@
-
+import { RouterProvider } from 'react-router-dom'
 import './App.css'
 import './index.css'
-import LandingPage from "./pages/LandingPage"
-import Footer from './components/Footer'
+import router from './routes'
 
 function App() {
 
   return (
     <>
-    <LandingPage />
-    <Footer />
+      <RouterProvider router={router} />
     </>
   )
 }

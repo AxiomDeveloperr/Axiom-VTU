@@ -27,3 +27,4 @@ export { default as stamp } from "./stamp.png";
 export { default as card } from "./card.png";
 export { default as contactAlarm } from "./contactAlarm.png";
 export { default as transfer } from "./transfer.png";
+export { default as atm } from "./atm.png";
