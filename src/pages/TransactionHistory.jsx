@@ -18,8 +18,8 @@ const TransactionHistory = ()=> {
 
     return (
         <div className="flex px-6 flex-col mt-10">
-      <table className="w-full table-auto text-sm border-collapse hidden md:table">
-        <thead>
+      <table className="w-full table-auto text-left text-sm border-collapse hidden md:table">
+        <thead >
           <tr className="text-[#880d1e] text-left border-b">
             <th className="py-2 px-3">Service</th>
             <th className="py-2 px-3">Amount</th>

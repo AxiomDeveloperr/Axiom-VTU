@@ -72,6 +72,10 @@ const AirtimeToCash = () => {
                       <input type="number" className="flex bg-gray-50 w-full h-8 rounded border-[#880d1e] border-1"/>
                     </div>
                     <div className="flex flex-col gap-2">
+                        <h2 className="flex font-md text-md text-black items-start">Purchase Price</h2>
+                      <input type="number" className="flex bg-gray-50 w-full h-8 rounded border-[#880d1e] border-1"/>
+                    </div>
+                    <div className="flex flex-col gap-2">
                         <h2 className="flex font-md text-md text-black items-start">Airtime Share Pin</h2>
                         <input type="number" className="flex bg-gray-50 w-full h-8 rounded border-[#880d1e] border-1"/>
                     </div>
