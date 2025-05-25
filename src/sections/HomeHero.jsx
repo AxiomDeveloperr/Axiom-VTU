@@ -9,21 +9,23 @@ const HomeHero = () => {
   return (
     <div className="relative">
       {/* Floating image on small screens */}
-      <img
+      {/* <img
         src={guy}
         alt="Floating figure"
         className="block lg:hidden absolute top-[130px] right-4 w-32 h-auto z-10"
-      />
+      /> */}
 
       <section className="w-full bg-white py-12 px-4 md:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-between relative">
         {/* Left Side */}
         <div className="flex-1 mb-12 lg:mb-0 z-20">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 primary-font">
-            The <span className="primary-text">BEST</span> place to subscribe / buy
-            <br />
-            <span className="primary-text">AIRTIME</span>
-          </h1>
-          <p className="text-gray-700 text-base md:text-lg mb-6 text-left md:text-center">What are you buying today?</p>
+          <div className="text-start md:text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 primary-font">
+              The <span className="primary-text">BEST</span> place to subscribe / buy
+              <br />
+              <span className="primary-text">AIRTIME</span>
+            </h1>
+            <p className="text-gray-700 text-xl md:text-lg mb-6 text-left md:text-center">What are you buying today?</p>
+          </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-md relative z-0">
             {[
