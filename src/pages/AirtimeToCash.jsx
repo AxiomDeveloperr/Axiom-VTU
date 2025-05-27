@@ -14,20 +14,20 @@ const AirtimeToCash = () => {
   }
     return (
 
-      <div className="flex justify-center items-center my-10 py-10 flex-col bg-[#f5f3f4] px-4 md:px-0">
+      <div className="flex justify-center items-center py-10 flex-col bg-[#f5f3f4] px-4 md:px-0">
             <div className="flex flex-col md:flex-row gap-6 md:gap-10 mb-8">
                 <div>
                 <h2 className="text-[#880d1e]">Fill Info</h2>
                 <h2 className="w-36 bg-[#880d1e] h-2 rounded"></h2>
             </div>
-            <div>
+            {/* <div>
                 <h2 className="text-gray-400">Make Payment</h2>
                 <h2 className="w-36 bg-gray-400 h-2 rounded"></h2>
             </div>
             <div>
                 <h2 className="text-gray-400">View Receipt</h2>
                 <h2 className="w-36 bg-gray-400 h-2 rounded"></h2>
-            </div>
+            </div> */}
             </div>
             
             <div className=" w-full max-w-2xl bg-white p-6 md:p-10 rounded shadow-md">
