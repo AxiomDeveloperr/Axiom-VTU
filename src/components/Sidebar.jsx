@@ -10,16 +10,19 @@ import { BsPhone, BsWifi } from "react-icons/bs";
 import { RiTvLine } from "react-icons/ri";
 import { BiWallet } from "react-icons/bi";
 import { AiOutlineCreditCard } from "react-icons/ai";
+import { path } from "framer-motion/client";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen }) => {
+  const navigate = useNavigate()
   const menuItems = [
     { label: "Dashboard", icon: <MdDashboard />, key: "dashboard" },
     { label: "Buy Airtime", icon: <BsPhone />, key: "airtime" },
     { label: "Buy Data", icon: <BsWifi />, key: "data" },
     { label: "TV Subscription", icon: <RiTvLine />, key: "tv" },
     { label: "Pay Electric Bill", icon: <BiWallet />, key: "electric" },
-    { label: "Airtime to Cash", icon: <AiOutlineCreditCard />, key: "cash" },
-    { label: "Transaction History", icon: <MdOutlineHistory />, key: "history" },
+    { label: "Airtime to Cash", icon: <AiOutlineCreditCard />, key: "cash", path: "dashboard/airtime-to-cash" },
+    { label: "Transaction History", icon: <MdOutlineHistory />, key: "history", path: "dashboard/transaction-history" },
     { label: "Help & Support", icon: <MdOutlineSupportAgent />, key: "support" },
   ];
 
@@ -45,6 +48,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen }) =
         <button
           key={item.key}
           onClick={() => {
+            navigate (item.path);
             setCurrentPage(item.key);
             setSidebarOpen(false);
           }}
