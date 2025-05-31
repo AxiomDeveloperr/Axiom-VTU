@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AuthForm from "../components/AuthForm";
-import Header from "../components/Header";
+import Head from "../components/Head";
 import dash from "../assets/images/dashImg.png";
 
 const AuthPage = () => {
@@ -10,6 +10,7 @@ const AuthPage = () => {
   const getInitialFormData = (isSignup) => ({
     email: "",
     password: "",
+    ...(!isSignup && { remember: false }),
     ...(isSignup && {
       firstName: "",
       lastName: "",
@@ -21,11 +22,12 @@ const AuthPage = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, type, value, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
+    setRemembered(formData.remember);
   };
 
   const handleSubmit = (e) => {
@@ -56,14 +58,12 @@ const AuthPage = () => {
         </p>
       </div>
       <div className="w-full md:w-2/3 flex flex-col items-center p-4 md:p-6">
-        <Header isSignup={isSignup} switchMode={switchMode} />
+        <Head isSignup={isSignup} switchMode={switchMode} />
         <AuthForm
-          mode={mode}
           formData={formData}
           isSignup={isSignup}
           onChange={handleChange}
           onSubmit={handleSubmit}
-          switchMode={switchMode}
           errors={errors}
           setErrors={setErrors}
         />

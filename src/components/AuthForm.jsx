@@ -1,13 +1,11 @@
-import { React, useState } from "react";
 import InputField from "./InputField";
-import Btn from "./Btn";
+import Button from "./Button";
+import RememberMe from "./RememberMe";
 
 const AuthForm = ({
-  mode,
   formData,
   onChange,
   onSubmit,
-  switchMode,
   isSignup,
   errors,
   setErrors,
@@ -45,7 +43,7 @@ const AuthForm = ({
         {isSignup ? "Sign up" : "Log in"}
       </h2>
 
-      <Btn
+      <Button
         text={isSignup ? "Sign up with Google" : "Login with Google"}
         onClick={() => {}}
         large={true}
@@ -112,7 +110,16 @@ const AuthForm = ({
           />
         )}
 
-        <Btn type="submit" text={isSignup ? "Create Account" : "Log In"} />
+        {!isSignup && (
+          <div className="flex flex-col md:flex-row items-end md:justify-between gap-4">
+            <RememberMe formData={formData} onChange={onChange} />
+            <div className="text-sm text-[#880d1e] order-1 md:order-2">
+              Recover Password
+            </div>
+          </div>
+        )}
+
+        <Button type="submit" text={isSignup ? "Create Account" : "Log In"} />
 
         {/* <div className="text-center mt-4">
           <span className="text-sm text-gray-600">
