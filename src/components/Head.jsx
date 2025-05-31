@@ -9,7 +9,6 @@ const Head = ({ switchMode, isSignup }) => {
         <img className="block md:hidden" src={logo} alt="" width={150} />
         <button
           type="button"
-          onClick={switchMode}
           className="hidden md:flex items-center gap-2 text-[#880d1e]"
         >
           <FaChevronLeft />
