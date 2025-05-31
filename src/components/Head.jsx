@@ -1,6 +1,7 @@
 import React from "react";
 import { FaChevronLeft, FaBars } from "react-icons/fa6";
 import logo from "../assets/axiomdev.svg";
+import { Link } from "react-router-dom";
 
 const Head = ({ switchMode, isSignup }) => {
   return (
@@ -17,13 +18,15 @@ const Head = ({ switchMode, isSignup }) => {
       </div>
 
       <div className="flex items-center justify-between gap-4">
-        <button
-          type="button"
-          onClick={switchMode}
-          className="ml-1 bg-[#880d1e] text-white text-sm md:text-md font-medium px-8 md:px-12 py-3 md:py-4 rounded-2xl"
-        >
-          {isSignup ? "Login" : "Sign up"}
-        </button>
+        <Link to={isSignup ? "/login" : "/signup"}>
+          <button
+            type="button"
+            className="ml-1 bg-[#880d1e] text-white text-sm md:text-md font-medium px-8 md:px-12 py-3 md:py-4 rounded-2xl"
+          >
+            {isSignup ? "Login" : "Sign up"}
+          </button>
+        </Link>
+
         <FaBars className="block md:hidden text-[#880d1e] text-3xl" />
       </div>
     </div>

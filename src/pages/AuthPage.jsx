@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import AuthForm from "../components/AuthForm";
 import Head from "../components/Head";
 import dash from "../assets/images/dashImg.png";
+import { useLocation } from "react-router-dom";
 
 const AuthPage = () => {
-  const [mode, setMode] = useState("signup");
-  const isSignup = mode === "signup";
+  const location = useLocation();
+  const isSignup = location.pathname === "/signup";
 
   const getInitialFormData = (isSignup) => ({
     email: "",
@@ -27,7 +28,6 @@ const AuthPage = () => {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-    setRemembered(formData.remember);
   };
 
   const handleSubmit = (e) => {

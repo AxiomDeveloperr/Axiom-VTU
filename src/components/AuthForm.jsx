@@ -1,5 +1,5 @@
 import InputField from "./InputField";
-import Button from "./Button";
+import Btn from "./Btn";
 import RememberMe from "./RememberMe";
 
 const AuthForm = ({
@@ -43,7 +43,7 @@ const AuthForm = ({
         {isSignup ? "Sign up" : "Log in"}
       </h2>
 
-      <Button
+      <Btn
         text={isSignup ? "Sign up with Google" : "Login with Google"}
         onClick={() => {}}
         large={true}
@@ -119,7 +119,7 @@ const AuthForm = ({
           </div>
         )}
 
-        <Button type="submit" text={isSignup ? "Create Account" : "Log In"} />
+        <Btn type="submit" text={isSignup ? "Create Account" : "Log In"} />
 
         {/* <div className="text-center mt-4">
           <span className="text-sm text-gray-600">
