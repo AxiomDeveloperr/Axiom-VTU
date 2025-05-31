@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
 const Dashboard = () => {
-  const [currentPage, setCurrentPage] = useState("dashboard");
+  const [currentPage, setCurrentPage] = useState("Dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
