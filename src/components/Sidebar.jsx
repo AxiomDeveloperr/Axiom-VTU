@@ -10,20 +10,20 @@ import { BsPhone, BsWifi } from "react-icons/bs";
 import { RiTvLine } from "react-icons/ri";
 import { BiWallet } from "react-icons/bi";
 import { AiOutlineCreditCard } from "react-icons/ai";
-import { path } from "framer-motion/client";
+// import { path } from "framer-motion/client";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate()
   const menuItems = [
-    { label: "Dashboard", icon: <MdDashboard />, key: "dashboard" },
-    { label: "Buy Airtime", icon: <BsPhone />, key: "airtime" },
-    { label: "Buy Data", icon: <BsWifi />, key: "data" },
-    { label: "TV Subscription", icon: <RiTvLine />, key: "tv" },
-    { label: "Pay Electric Bill", icon: <BiWallet />, key: "electric" },
-    { label: "Airtime to Cash", icon: <AiOutlineCreditCard />, key: "cash", path: "dashboard/airtime-to-cash" },
-    { label: "Transaction History", icon: <MdOutlineHistory />, key: "history", path: "dashboard/transaction-history" },
-    { label: "Help & Support", icon: <MdOutlineSupportAgent />, key: "support" },
+    { label: "Dashboard", icon: <MdDashboard />, key: "Dashboard" },
+    { label: "Buy Airtime", icon: <BsPhone />, key: "Buy Airtime", path: "buy-airtime" },
+    { label: "Buy Data", icon: <BsWifi />, key: "Buy Data", path: "buy-data" },
+    { label: "TV Subscription", icon: <RiTvLine />, key: "Tv Subscription", path: "tv-subscription" },
+    { label: "Pay Electric Bill", icon: <BiWallet />, key: "Pay Electric Bill", path: "pay-electric-bill" },
+    { label: "Airtime to Cash", icon: <AiOutlineCreditCard />, key: "Airtime to Cash", path: "airtime-to-cash" },
+    { label: "Transaction History", icon: <MdOutlineHistory />, key: "Transaction History", path: "transaction-history" },
+    { label: "Help & Support", icon: <MdOutlineSupportAgent />, key: "Help & Support", path: "support" },
   ];
 
   return (
