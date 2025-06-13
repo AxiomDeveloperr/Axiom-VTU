@@ -3,7 +3,7 @@ import { FaChevronLeft, FaBars } from "react-icons/fa6";
 import logo from "../assets/axiomdev.svg";
 import { Link } from "react-router-dom";
 
-const Head = ({ switchMode, isSignup }) => {
+const Head = ({ isSignup }) => {
   return (
     <div className="bg-white fixed top-0 md:static flex justify-between items-center w-full px-4 md:px-4 py-4 md:py-0 mb-8 shadow-md md:shadow-none z-20">
       <div>
