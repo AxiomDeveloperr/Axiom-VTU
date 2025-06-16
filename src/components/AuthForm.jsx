@@ -113,7 +113,7 @@ const AuthForm = ({
         {!isSignup && (
           <div className="flex flex-col md:flex-row items-end md:justify-between gap-4">
             <RememberMe formData={formData} onChange={onChange} />
-            <div className="text-sm text-[#880d1e] order-1 md:order-2">
+            <div className="text-sm text-[#880d1e] order-1 md:order-2 cursor-pointer">
               Recover Password
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthForm from "../components/AuthForm";
 import Head from "../components/Head";
 import dash from "../assets/images/dashImg.png";
@@ -8,7 +8,7 @@ const AuthPage = () => {
   const location = useLocation();
   const isSignup = location.pathname === "/signup";
 
-  const getInitialFormData = (isSignup) => ({
+  const getInitialFormData = () => ({
     email: "",
     password: "",
     ...(!isSignup && { remember: false }),
@@ -19,8 +19,13 @@ const AuthPage = () => {
     }),
   });
 
-  const [formData, setFormData] = useState(getInitialFormData(isSignup));
+  const [formData, setFormData] = useState(getInitialFormData());
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    setFormData(getInitialFormData());
+    setErrors({});
+  }, [location.pathname]);
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
@@ -32,14 +37,8 @@ const AuthPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(mode.toUpperCase(), formData);
-  };
-
-  const switchMode = () => {
-    const nextMode = mode === "signup" ? "login" : "signup";
-    setMode(nextMode);
-    setFormData(getInitialFormData(nextMode === "signup"));
-    setErrors({});
+    console.log(location.pathname.toUpperCase(), formData);
+    setFormData(getInitialFormData());
   };
 
   return (
@@ -58,7 +57,7 @@ const AuthPage = () => {
         </p>
       </div>
       <div className="w-full md:w-2/3 flex flex-col items-center p-4 md:p-6">
-        <Head isSignup={isSignup} switchMode={switchMode} />
+        <Head isSignup={isSignup} />
         <AuthForm
           formData={formData}
           isSignup={isSignup}
