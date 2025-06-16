@@ -1,31 +1,14 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
+import { RouterProvider } from 'react-router-dom'
 import './index.css'
-import LandingPage from "./pages/LandingPage"
-import Footer from './components/Footer'
-import ElectricBill from './components/ElectricBill'
-import MakePayment from './components/MakePayment'
-import Help from "./components/Help"
+
+import router from "./routes";
 
 function App() {
-
   return (
     <>
-    
-      <LandingPage />
-      <Footer />
-
-      
-
-
-      
-  
-
-
-    
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
