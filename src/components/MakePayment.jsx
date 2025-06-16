@@ -1,4 +1,3 @@
-
 const MakePayment = ({ formData, onPay, onBack }) => {
     return (
         <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md w-full text-center">
@@ -29,3 +28,4 @@ const MakePayment = ({ formData, onPay, onBack }) => {
 }
 
 export default MakePayment
+
