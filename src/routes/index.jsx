@@ -10,6 +10,8 @@ import TransactionHistory from '../pages/TransactionHistory';
 import AirtimeToCash from '../pages/AirtimeToCash';
 import TVSubscription from '../pages/TVSubscription';
 import AuthPage from "../pages/AuthPage";
+import Airtime from '../components/Airtime';
+import BuyData from '../components/BuyData';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
         <Route path='transaction-history' element={<TransactionHistory />} />
         <Route path="airtime-to-cash" element={<AirtimeToCash />} />
         <Route path="tv-subscription" element={<TVSubscription />} />
+        <Route path="buy-airtime" element={<Airtime />} />
+        <Route path='buy-data' element={<BuyData />} />
 
       </Route>
     </>
