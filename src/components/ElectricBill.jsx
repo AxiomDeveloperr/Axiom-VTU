@@ -124,6 +124,10 @@ export default function MakePayment() {
               <option value="Kwara">Kwara</option>
               <option value="Lagos">Lagos</option>
               <option value="ogun">ogun</option>
+              <option value="ogun">ondo</option>
+              <option value="ogun">osun</option>
+
+
               
             </select>
         </div>
