@@ -1,20 +1,87 @@
+import { FaCheckCircle, FaDownload, FaPrint, FaShare } from "react-icons/fa";
 
-const ViewReceipt = ({ formData, onClose }) => {
+const ViewReceipt = ({ formData, transactionData, reset }) => {
+    const providers = {
+        dstv: "DStv",
+        gotv: "GOtv",
+        startimes: "StarTimes"
+    };
+
+    const plans = {
+        "dstv-padi": "Padi",
+        "dstv-yanga": "Yanga",
+        "dstv-confam": "Confam",
+        "gotv-smallie": "Smallie",
+        "gotv-jolli": "Jolli",
+        "gotv-max": "Max",
+        "startimes-basic": "Basic",
+        "startimes-smart": "Smart",
+        "startimes-classic": "Classic"
+    };
+
+    const formatDate = (date) => {
+        return new Date(date).toLocaleString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+    };
+
     return (
-        <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md w-full text-center">
-            <h2 className="text-xl font-semibold mb-4">Payment Receipt</h2>
-            <p>Payment for <strong>{formData.bundle}</strong> on <strong>{formData.provider}</strong> was successful!</p>
-            <p className="mt-2">Smart Card Number: <strong>{formData.cardNumber}</strong></p>
-            <p className="mt-2">Amount Paid: <strong>{formData.amount}</strong></p>
-            <p className="mt-4 text-green-600 font-bold">Thank you for your payment!</p>
-            <button
-                onClick={onClose}
-                className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 font-medium"
-            >
-                Close
+        <div className="space-y-4 text-center">
+            {/* <FaCheckCircle className="text-green-500 text-4xl mx-auto" />
+            <h3 className="text-xl font-bold">Payment Successful</h3>
+            <p className="text-gray-600">Your TV subscription has been processed.</p> */}
+
+            <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-300 rounded-xl p-6 space-y-4">
+                <div className="flex justify-between text-gray-700">
+                    <span>Transaction ID:</span>
+                    <span className="font-mono">{transactionData.transactionId}</span>
+                </div>
+                <div className="flex justify-between text-gray-700">
+                    <span>Date:</span>
+                    <span className="font-mono">{formatDate(transactionData.timestamp)}</span>
+                </div>
+                <div className="flex justify-between text-gray-700">
+                    <span>Smartcard:</span>
+                    <span className="font-mono">{formData.smartcardNumber}</span>
+                </div>
+                <div className="flex justify-between text-gray-700">
+                    <span>Provider:</span>
+                    <span className="font-mono">{providers[formData.provider]}</span>
+                </div>
+                <div className="flex justify-between text-gray-700">
+                    <span>Plan:</span>
+                    <span className="font-mono">{plans[formData.plan]}</span>
+                </div>
+                <div className="flex justify-between text-gray-700">
+                    <span>Amount Paid:</span>
+                    <span className="font-mono">₦{parseInt(formData.amount || 0).toLocaleString()}</span>
+                </div>
+            </div>
+
+            <div className="flex justify-center gap-4 flex-wrap">
+                <button className="bg-green-100 text-green-700 px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer">
+                    <FaDownload /> Download
+                </button>
+                <button 
+                    onClick={() => window.print()}
+                    className="bg-blue-100 text-blue-700 px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer"
+                >
+                    <FaPrint /> Print
+                </button>
+                <button className="bg-purple-100 text-purple-700 px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer">
+                    <FaShare /> Share
+                </button>
+            </div>
+
+            <button onClick={reset} className="px-6 py-3 bg-blue-100 primary-text rounded-xl hover:bg-blue-200 transition-all">
+                Make another purchase
             </button>
         </div>
-    )
+    );
 }
 
 export default ViewReceipt

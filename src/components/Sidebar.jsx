@@ -29,11 +29,9 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen }) =
   return (
     <div
       className={`
-        fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 p-4 space-y-2
-        transform transition-transform duration-300 ease-in-out
-        md:static md:translate-x-0
-        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-        z-50
+        fixed top-0 left-0 min-h-screen w-64 bg-white border-r border-gray-200 p-4 space-y-2
+        transform transition-transform duration-300 ease-in-out md:static md:translate-x-0
+        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} z-50
       `}
     >
       <div className="flex justify-between items-center mb-8">
@@ -59,7 +57,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen }) =
           {item.icon} {item.label}
         </button>
       ))}
-      <button className="flex items-center gap-3 mt-32 w-full text-left p-2 rounded-lg primary-text hover:bg-[#ffc8c8] hover:text-[#880d1e]">
+      <button className="flex items-center gap-3 mt-auto w-full text-left p-2 rounded-lg primary-text hover:bg-[#ffc8c8] hover:text-[#880d1e]">
         <MdLogout /> Log Out
       </button>
     </div>
