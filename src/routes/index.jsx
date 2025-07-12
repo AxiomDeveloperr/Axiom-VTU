@@ -12,6 +12,7 @@ import TVSubscription from '../pages/TVSubscription';
 import AuthPage from "../pages/AuthPage";
 import Airtime from '../components/Airtime';
 import BuyData from '../components/BuyData';
+import NotificationPage from '../components/NotificationPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
       {/* Dashboard Pages */}
       <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<MainContainer />} />
-
+        <Route path='notification' element={<NotificationPage />} />
         <Route path='update-profile' element={<ProfileUpdate />} />
         <Route path='transaction-history' element={<TransactionHistory />} />
         <Route path="airtime-to-cash" element={<AirtimeToCash />} />

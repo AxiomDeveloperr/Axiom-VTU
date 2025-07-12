@@ -1,91 +1,165 @@
-import { useState } from "react";
+import { useState } from "react"; 
 import FillInfo from "../components/FillInfo";
 import MakePayment from "../components/MakePayment";
 import ViewReceipt from "../components/ViewReceipt";
-import ConfirmPaymentModal from "../components/ConfirmPaymentModal";
+import { FaCreditCard, FaCheckCircle, FaReceipt, FaTv } from "react-icons/fa";
 
 const TVSubscription = () => {
     const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState(null);
-    const [showModal, setShowModal] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
 
-    const handleNext = (data) => {
-        setFormData(data);
-        setStep(2);
-    };
+    const [formData, setFormData] = useState({
+        smartcardNumber: "",
+        provider: "",
+        plan: "",
+        amount: ""
+    });
 
-    const handlePay = () => {
-        setShowModal(true);
-    };
+    const [paymentData, setPaymentData] = useState({
+        paymentMethod: "",
+        cardNumber: "",
+        expiryDate: "",
+        cvv: "",
+        cardName: ""
+    });
 
-    const handleBack = () => {
-        setStep(1);
-    };
+    const [transactionData, setTransactionData] = useState({
+        transactionId: "",
+        timestamp: "",
+        status: "success"
+    });
 
-    const handleClose = () => {
-        setStep(1);
-        setFormData(null);
-    };
+    const nextStep = () => setStep((prev) => prev + 1);
+    const prevStep = () => setStep((prev) => prev - 1);
 
-    const handleConfirm = () => {
-        setShowModal(false);
-        setStep(3);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
-
-    const getStepStatus = (stepNumber) => {
-        if (stepNumber < step) return 'completed';
-        if (stepNumber === step) return 'active';
-        return 'inactive';
-    };
-
-    const getStepClass = (status) => {
-        switch (status) {
-            case 'completed':
-                return 'bg-green-600 text-white border-green-600';
-            case 'active':
-                return 'bg-blue-600 text-white border-blue-600';
-            default:
-                return 'bg-gray-200 text-gray-500 border-gray-200';
+    const getStepTitle = () => {
+        switch(step) {
+            case 1: return "TV Subscription";
+            case 2: return "Payment Details";
+            case 3: return "Transaction Receipt";
+            default: return "TV Subscription";
         }
     };
 
+    const getStepIcon = () => {
+        switch(step) {
+            case 1: return <FaTv className="text-2xl text-blue-600" />;
+            case 2: return <FaCreditCard className="text-2xl text-blue-600" />;
+            case 3: return <FaCheckCircle className="text-2xl text-green-600" />;
+            default: return <FaTv className="text-2xl text-blue-600" />;
+        }
+    };
+
+    const reset = () => {
+        setStep(1);
+        setFormData({ smartcardNumber: '', provider: '', plan: '', amount: '' });
+        setPaymentData({ paymentMethod: '', cardNumber: '', expiryDate: '', cvv: '', cardName: '' });
+        setTransactionData({ transactionId: '', timestamp: '', status: 'success' });
+    };
+
     return (
-        <div className="max-w-md w-full mx-auto bg-white rounded-lg shadow-lg overflow-hidden mt-4 px-4 sm:px-6">
-            {/* Progress Steps */}
-            <div className="flex flex-row space-x-3 bg-white gap-4 sm:gap-0 px-2 sm:px-6 py-4 border-b border-b-gray-300">
-                {[1, 2, 3].map((num) => (
-                    <div key={num} className="flex items-center flex-1">
-                        <div
-                            className={`w-10 h-10 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center text-sm font-medium ${getStepClass(getStepStatus(num))}`}
-                        >
-                            {getStepStatus(num) === 'completed' ? '✓' : num}
+        <div className="max-w-4xl mx-auto p-4">
+            {/* Stepper */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                <div className="flex items-center justify-between mb-6">
+                    {/* Step 1 */}
+                    <div className="flex items-center">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-md
+                            ${step >= 1 ? 'primary-color' : 'bg-gray-200 text-gray-500'}`}>
+                                1
                         </div>
-                        <span
-                            className={`ml-2 text-base sm:text-sm font-bold ${step >= num ? 'text-blue-600' : 'text-gray-400'}`}
-                        >
-                            {num === 1 ? 'Fill Info' : num === 2 ? 'Make Payment' : 'View Receipt'}
-                        </span>
+                        <div className="ml-4">
+                            <p className={`font-semibold hidden sm:block ${step >= 1 ? 'text-primary' : 'text-gray-500'}`}>
+                                Select Details
+                            </p>
+                            <p className="text-sm text-gray-500 hidden sm:block">Choose your Cable & Amount</p>
+                        </div>
                     </div>
-                ))}
+
+                    {/* Step 2 */}
+                    <div className="flex-1 h-1 bg-gray-200 mx-6 rounded-full">
+                        <div className={`h-full transition-all duration-500 rounded-full 
+                            ${step >= 2 ? 'primary-color w-full' : 'primary-color w-0'}`}>
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-md
+                            ${step >= 2 ? 'primary-color' : 'bg-gray-200 text-gray-500'}`}>
+                                2
+                        </div>
+                        <div className="ml-4">
+                            <p className={`font-semibold hidden sm:block ${step >= 2 ? 'text-primary' : 'text-gray-500'}`}>
+                                Make Payment
+                            </p>
+                            <p className="text-sm text-gray-500 hidden sm:block">Complete transaction</p>
+                        </div>
+                    </div>
+
+                    {/* Step 3 */}
+                    <div className="flex-1 h-1 bg-gray-200 mx-6 rounded-full">
+                        <div className={`h-full transition-all duration-500 rounded-full 
+                            ${step >= 3 ? 'primary-color w-full' : 'primary-color w-0'}`}>
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-md
+                            ${step >= 3 ? 'bg-gradient-to-r from-green-500 to-green-600 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                                <FaReceipt />
+                        </div>
+                        <div className="ml-4">
+                            <p className={`font-semibold hidden sm:block ${step >= 3 ? 'text-primary' : 'text-gray-500'}`}>
+                                View Receipt
+                            </p>
+                            <p className="text-sm text-gray-500 hidden sm:block">Get confirmation</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            {/* Step Content */}
-            <div className="p-2 sm:p-4">
-                {step === 1 && <FillInfo onNext={handleNext} />}
-                {step === 2 && <MakePayment formData={formData} onPay={handlePay} onBack={handleBack} />}
-                {step === 3 && <ViewReceipt formData={formData} onClose={handleClose} />}
+            {/* Step Detail */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+                <div className="max-w-2xl mx-auto">
+                    <div className="text-center mb-8">
+                        <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                            {getStepIcon()}
+                        </div>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-2">{getStepTitle()}</h2>
+                        <p className="text-gray-600">
+                            {step === 1 && "Select your preferred cable TV provider and package"}
+                            {step === 2 && "Make a secure and quick payment for your subscription"}
+                            {step === 3 && "Your TV subscription has been completed successfully"}
+                        </p>
+                    </div>
+                    {step === 1 && (
+                        <FillInfo
+                            formData={formData}
+                            setFormData={setFormData}
+                            nextStep={nextStep}
+                        />
+                    )}
+                    {step === 2 && (
+                        <MakePayment
+                            formData={formData}
+                            paymentData={paymentData}
+                            setPaymentData={setPaymentData}
+                            isProcessing={isProcessing}
+                            setIsProcessing={setIsProcessing}
+                            setTransactionData={setTransactionData}
+                            nextStep={nextStep}
+                            prevStep={prevStep}
+                        />
+                    )}
+                    {step === 3 && (
+                        <ViewReceipt
+                            formData={formData}
+                            transactionData={transactionData}
+                            reset={reset}
+                        />
+                    )}
+                </div>
             </div>
-
-            {/* Modal */}
-            {showModal && (
-                <ConfirmPaymentModal onConfirm={handleConfirm} onClose={handleCloseModal} />
-            )}
         </div>
     );
-};
+}
 
-export default TVSubscription;
+export default TVSubscription
