@@ -1,7 +1,7 @@
 
 import { CiSquareCheck } from "react-icons/ci";
 import { CiSquareAlert } from "react-icons/ci";
-import Transaction from "../data/Transaction";
+import Transaction from "../data/transaction-history";
 
 const TransactionHistory = ()=> {
      const getStatusStyle = (status) => {

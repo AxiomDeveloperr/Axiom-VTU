@@ -1,7 +1,7 @@
 import FeatureService from "../sections/FeatureService"
 import HomeHero from "../sections/HomeHero"
 import OtherServices from "../sections/OtherServices"
-import OurService from "../sections/OurService"
+// import OurService from "../sections/OurService"
 import WalletFundingComponent from "../sections/WalletFundingComponent"
 import WhyChooseUs from "../sections/WhyChooseUs"
 
@@ -10,7 +10,7 @@ const LandingPage = () => {
     <div>
       <HomeHero />
       <WhyChooseUs />
-      <OurService />
+      {/* <OurService /> */}
       <FeatureService />
       <OtherServices />
       <WalletFundingComponent />
