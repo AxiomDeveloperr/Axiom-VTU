@@ -14,6 +14,8 @@ import Airtime from '../components/Airtime';
 import BuyData from '../components/BuyData';
 import NotificationPage from '../components/NotificationPage';
 import FAQPage from '../pages/faq';
+import AboutUs from '../pages/AboutUs';
+import Services from '../pages/service';
 
 
 
@@ -26,6 +28,9 @@ const router = createBrowserRouter(
         <Route index element={<LandingPage />} />
         <Route path='contact' element={<ContactPage />} />
         <Route path='faq' element={<FAQPage />} />
+        <Route path='about' element={<AboutUs/>} />
+  <Route path="/services" element={<Services />} />
+
       </Route>
 
       {/* Dashboard Pages */}
